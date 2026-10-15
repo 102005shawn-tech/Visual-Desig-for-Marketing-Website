@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCU 經營管理學系 | 定義商業視野，驅動人文與數智未來</title>
+  
+  <!-- Fonts: Plus Jakarta Sans & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: {
+              DEFAULT: '#080d14',
+              surface: '#0f1724',
+              card: '#141e2e',
+              border: '#1e293b'
+            },
+            mint: {
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              glow: '#00f5a0'
+            },
+            cyberCyan: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              glow: '#00d9f5'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans TC"', 'sans-serif'],
+          },
+          animation: {
+            'marquee': 'marquee 25s linear infinite',
+            'float-slow': 'float 6s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '0.85' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 質感霓虹玻璃擬態 */
+    .glass-dark {
+      background: rgba(15, 23, 36, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-hover {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-hover:hover {
+      background: rgba(20, 30, 46, 0.88);
+      border-color: rgba(52, 211, 153, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -10px rgba(0, 245, 160, 0.12);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 20%, #34d399 70%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-cyan {
+      background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glow-bg {
+      background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
+    }
+    /* 自訂捲軸 */
+    ::-webkit-scrollbar { width: 7px; }
+    ::-webkit-scrollbar-track { background: #080d14; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+  </style>
+</head>
+<body class="bg-obsidian text-slate-100 antialiased font-sans selection:bg-mint-500 selection:text-black overflow-x-hidden">
+
+  <!-- 頂部即時公告/品牌小字列 -->
+  <div class="bg-obsidian-surface/90 border-b border-obsidian-border text-[11px] text-slate-400 py-1.5 px-4 backdrop-blur-md relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-mint-400 animate-ping"></span>
+        <span class="font-semibold text-slate-300">2026-2027 學年度</span>
+        <span class="hidden sm:inline text-slate-500">|</span>
+        <span class="hidden sm:inline">智慧永續管理學院・慈濟大學經營管理學系 全方位實作導向招生中</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="https://mdm.tcu.edu.tw/p/412-1021-2.php" target="_blank" rel="noopener noreferrer" class="hover:text-mint-400 transition flex items-center gap-1">
+          <span>系所舊官網</span>
+          <i data-lucide="external-link" class="w-3 h-3"></i>
+        </a>
+        <a href="#contact" class="text-mint-400 font-semibold hover:underline">立即諮詢</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 浮動導航列 (Navigation) -->
+  <header class="sticky top-3 z-50 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto glass-dark rounded-2xl px-5 py-3.5 flex items-center justify-between shadow-2xl border border-white/10">
+      <!-- 品牌識別 -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-mint-500 to-cyberCyan-500 flex items-center justify-center text-obsidian shadow-lg shadow-mint-500/25 group-hover:scale-105 transition-transform">
+          <i data-lucide="zap" class="w-5 h-5 fill-current"></i>
+        </div>
+        <div>
+          <div class="font-black text-base sm:text-lg tracking-tight flex items-center gap-1.5">
+            <span class="text-white">TCU</span>
+            <span class="text-gradient font-extrabold">經管系</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-mint-500/10 text-mint-400 border border-mint-500/30 font-mono tracking-normal">BM</span>
+          </div>
+          <div class="text-[9.5px] uppercase tracking-wider text-slate-400 font-mono -mt-0.5">
+            Dept. of Business Management
+          </div>
+        </div>
+      </a>
+
+      <!-- 桌面導航選項 -->
+      <nav class="hidden md:flex items-center space-x-1 text-xs font-semibold text-slate-300">
+        <a href="#hero" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/5 transition">首頁</a>
+        <a href="#facilities" class="px-3 py-2 rounded-lg hover:text-mint-400 hover:bg-white/5 transition flex items-center gap-1">
+          <span>5大實戰情境</span>
+          <span class="text-[9px] px-1 bg-mint-500/20 text-mint-400 rounded">HOT</span>
+        </a>
+        <a href="#why-tcu" class="px-3 py-2 rounded-lg hover:text-mint-400 hover:bg-white/5 transition">辦學核心優勢</a>
+        <a href="#career" class="px-3 py-2 rounded-lg hover:text-mint-400 hover:bg-white/5 transition">職涯雷達</a>
+        <a href="#curriculum" class="px-3 py-2 rounded-lg hover:text-mint-400 hover:bg-white/5 transition">核心素養</a>
+        <a href="#faq" class="px-3 py-2 rounded-lg hover:text-mint-400 hover:bg-white/5 transition">常見問題</a>
+      </nav>
+
+      <!-- CTA 按鈕組 -->
+      <div class="hidden sm:flex items-center gap-3">
+        <button onclick="openModal('visitModal')" class="text-xs font-semibold px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 transition flex items-center gap-1.5">
+          <i data-lucide="calendar" class="w-3.5 h-3.5 text-mint-400"></i>
+          預約參訪教室
+        </button>
+        <a href="#contact" class="text-xs font-bold px-4 py-2 rounded-xl bg-gradient-to-r from-mint-500 to-cyberCyan-500 hover:opacity-90 text-obsidian shadow-lg shadow-mint-500/20 transition transform hover:-translate-y-0.5 flex items-center gap-1.5">
+          <span>聯絡系辦</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- 行動版漢堡鈕 -->
+      <button id="mobileMenuToggle" class="md:hidden p-2 rounded-lg text-slate-300 hover:bg-white/5">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- 行動版折疊選單 -->
+    <div id="mobileMenu" class="hidden md:hidden mt-2 glass-dark rounded-2xl p-4 border border-white/10 space-y-2">
+      <a href="#facilities" class="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/5 mobile-link">5大特色實戰教室</a>
+      <a href="#why-tcu" class="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/5 mobile-link">辦學核心優勢</a>
+      <a href="#career" class="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/5 mobile-link">未來出路雷達</a>
+      <a href="#curriculum" class="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/5 mobile-link">五大專業模組</a>
+      <a href="#faq" class="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/5 mobile-link">常見 QA</a>
+      <a href="#contact" class="block px-3 py-2 rounded-lg text-sm font-medium text-mint-400 font-bold hover:bg-white/5 mobile-link">系所聯絡窗口</a>
+      <button onclick="openModal('visitModal')" class="w-full text-center py-2 text-xs font-semibold rounded-lg bg-mint-500 text-obsidian mt-2">
+        預約實體參訪
+      </button>
+    </div>
+  </header>
+
+  <!-- 英雄主視覺區 (Hero Section) -->
+  <section id="hero" class="relative pt-12 pb-20 sm:pt-20 sm:pb-32 overflow-hidden glow-bg">
+    <!-- 背景裝飾光斑與線條 -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-mint-500/10 rounded-full blur-[130px] pointer-events-none"></div>
+    <div class="absolute bottom-10 right-10 w-[450px] h-[450px] bg-cyberCyan-500/10 rounded-full blur-[110px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- 標籤徽章 -->
+      <div class="flex justify-center mb-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-mint-500/30 text-mint-400 text-xs font-semibold backdrop-blur-md shadow-inner shadow-mint-500/10 animate-float-slow">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>智慧永續管理學院 ✕ 人文實作新典範</span>
+          <span class="text-slate-500">•</span>
+          <span class="text-slate-300">拒絕死背理論，在學即是經理人</span>
+        </div>
+      </div>
+
+      <!-- 核心標語 -->
+      <div class="text-center max-w-4xl mx-auto space-y-6">
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.12]">
+          定義你的商業視野<br>
+          <span class="text-gradient">驅動人文與數智的未來</span>
+        </h1>
+        
+        <p class="text-base sm:text-xl text-slate-400 font-normal leading-relaxed max-w-2xl mx-auto">
+          結合慈濟四大志業龐大生態圈、前瞻智慧零售科技與哈佛個案研討。在五大特色情境教室中淬鍊行銷、營運、與 ESG 永續管理領導力。
+        </p>
+
+        <!-- CTA 按鈕群 -->
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <a href="#facilities" class="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-mint-500 to-emerald-500 hover:from-mint-400 hover:to-emerald-400 text-obsidian font-extrabold text-sm shadow-xl shadow-mint-500/20 transition transform hover:-translate-y-1 flex items-center gap-2">
+            <span>探索 5 大特色實作教室</span>
+            <i data-lucide="compass" class="w-4 h-4"></i>
+          </a>
+          <button onclick="downloadBrochure()" class="px-6 py-3.5 rounded-2xl bg-white/5 hover:bg-white/10 text-white font-bold text-sm border border-white/15 backdrop-blur-md transition flex items-center gap-2">
+            <i data-lucide="file-down" class="w-4 h-4 text-mint-400"></i>
+            <span>下載系所簡章與課程手冊</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 關鍵數據指標浮動列 -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        <div class="glass-dark p-5 rounded-2xl border border-white/5 text-center relative overflow-hidden group">
+          <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-mint-500/10 rounded-full blur-xl group-hover:bg-mint-500/20 transition"></div>
+          <div class="text-3xl sm:text-4xl font-black text-gradient font-mono">5<span class="text-mint-400 text-xl font-bold">+</span></div>
+          <div class="text-xs text-slate-400 font-medium mt-1">特色專業實作情境教室</div>
+          <div class="text-[10px] text-slate-500 mt-0.5">知足咖啡・智慧無人商店</div>
+        </div>
+
+        <div class="glass-dark p-5 rounded-2xl border border-white/5 text-center relative overflow-hidden group">
+          <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-cyberCyan-500/10 rounded-full blur-xl group-hover:bg-cyberCyan-500/20 transition"></div>
+          <div class="text-3xl sm:text-4xl font-black text-gradient-cyan font-mono">80<span class="text-cyberCyan-400 text-xl font-bold">%+</span></div>
+          <div class="text-xs text-slate-400 font-medium mt-1">畢業即接軌現代服務業</div>
+          <div class="text-[10px] text-slate-500 mt-0.5">跨足行銷、流通與金融</div>
+        </div>
+
+        <div class="glass-dark p-5 rounded-2xl border border-white/5 text-center relative overflow-hidden group">
+          <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-mint-500/10 rounded-full blur-xl group-hover:bg-mint-500/20 transition"></div>
+          <div class="text-3xl sm:text-4xl font-black text-white font-mono">100<span class="text-mint-400 text-xl font-bold">%</span></div>
+          <div class="text-xs text-slate-400 font-medium mt-1">專業證照全方位輔導</div>
+          <div class="text-[10px] text-slate-500 mt-0.5">行銷企劃・門市服務乙丙級</div>
+        </div>
+
+        <div class="glass-dark p-5 rounded-2xl border border-white/5 text-center relative overflow-hidden group">
+          <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-cyberCyan-500/10 rounded-full blur-xl group-hover:bg-cyberCyan-500/20 transition"></div>
+          <div class="text-3xl sm:text-4xl font-black text-gradient font-mono">4<span class="text-white text-xl font-bold">大</span></div>
+          <div class="text-xs text-slate-400 font-medium mt-1">慈濟全球志業體系後盾</div>
+          <div class="text-[10px] text-slate-500 mt-0.5">醫療・大愛感恩・靜思書軒</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 跑馬燈標籤列 (Interactive Ticker) -->
+    <div class="mt-14 py-3.5 bg-obsidian-surface/60 border-y border-white/5 backdrop-blur-md overflow-hidden relative">
+      <div class="flex whitespace-nowrap animate-marquee">
+        <!-- 重複兩次以達到無限循環 -->
+        <div class="flex items-center gap-8 text-xs font-bold text-slate-400 uppercase tracking-widest shrink-0">
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mint-400"></i> 哈佛式個案討論</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyberCyan-400"></i> 知足咖啡館門市實戰</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mint-400"></i> 智慧無人商店 RFID/POS</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyberCyan-400"></i> ESG 永續管理與循環經濟</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mint-400"></i> 國際商務談判交流</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyberCyan-400"></i> 大愛感恩科技產學實習</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mint-400"></i> 4K 影音商業提案簡報</span>
+        </div>
+        <div class="flex items-center gap-8 text-xs font-bold text-slate-400 uppercase tracking-widest shrink-0 ml-8">
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mint-400"></i> 哈佛式個案討論</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyberCyan-400"></i> 知足咖啡館門市實戰</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mint-400"></i> 智慧無人商店 RFID/POS</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyberCyan-400"></i> ESG 永續管理與循環經濟</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mint-400"></i> 國際商務談判交流</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyberCyan-400"></i> 大愛感恩科技產學實習</span>
+          <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mint-400"></i> 4K 影音商業提案簡報</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 大特色專業實習教室 (Bento Grid Showcase) -->
+  <section id="facilities" class="py-24 relative bg-obsidian-surface/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- 區塊標題 -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-mint-400 text-xs font-mono font-bold uppercase tracking-wider mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-mint-400"></span> Specialized Practicum Labs
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            5 大特色實作教室，做中學的最佳孵化基地
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+            告別死板的單向聽講，我們打造與頂尖業界完全同步的擬真商務環境。點擊任一張便當盒卡片，探索現場配備與實戰細節。
+          </p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <button onclick="openModal('visitModal')" class="inline-flex items-center gap-2 text-xs font-bold text-mint-400 hover:text-white px-4 py-2.5 rounded-xl bg-mint-500/10 hover:bg-mint-500/20 border border-mint-500/30 transition">
+            <i data-lucide="map-pin" class="w-4 h-4"></i>
+            參觀花蓮介仁校區教室
+          </button>
+        </div>
+      </div>
+
+      <!-- Bento Grid 排版 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-6">
+
+        <!-- Bento 1: 知足咖啡館 (大尺寸亮點卡片: 7 cols) -->
+        <div class="lg:col-span-7 glass-dark rounded-3xl p-7 border border-white/10 glass-hover relative overflow-hidden flex flex-col justify-between group cursor-pointer" onclick="showFacilityModal(1)">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10 pointer-events-none"></div>
+          
+          <!-- 背景情境照 -->
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" 
+               alt="知足咖啡館實習教室" 
+               class="absolute inset-0 w-full h-full object-cover object-center opacity-30 group-hover:scale-105 transition-transform duration-700">
+
+          <div class="relative z-20 flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
+              <i data-lucide="coffee" class="w-3.5 h-3.5"></i>
+              門市營運 ✕ 實境創業
+            </span>
+            <span class="font-mono text-xs text-slate-400 font-bold">01 / 05</span>
+          </div>
+
+          <div class="relative z-20 mt-36">
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-mint-400 transition-colors">
+              經營管理實習教室「知足咖啡館」
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 mt-2 line-clamp-2">
+              全擬真外場行銷與門市服務體驗實習場域。配備義式高壓商用咖啡機、智慧 POS 收銀、進銷存貨物盤點系統，由學生自組團隊輪值營運。
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="text-[11px] px-2.5 py-1 rounded-md bg-white/10 text-slate-200">商用 POS 機實習</span>
+              <span class="text-[11px] px-2.5 py-1 rounded-md bg-white/10 text-slate-200">顧客心理與外場服務</span>
+              <span class="text-[11px] px-2.5 py-1 rounded-md bg-white/10 text-slate-200">成本效益與損益計算</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 2: 智慧商店情境 (5 cols) -->
+        <div class="lg:col-span-5 glass-dark rounded-3xl p-7 border border-white/10 glass-hover relative overflow-hidden flex flex-col justify-between group cursor-pointer" onclick="showFacilityModal(4)">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10 pointer-events-none"></div>
+          
+          <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=800&q=80" 
+               alt="智慧商店情境" 
+               class="absolute inset-0 w-full h-full object-cover object-center opacity-30 group-hover:scale-105 transition-transform duration-700">
+
+          <div class="relative z-20 flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-mint-500/20 text-mint-300 border border-mint-500/30 flex items-center gap-1.5">
+              <i data-lucide="scan-barcode" class="w-3.5 h-3.5"></i>
+              新零售 ✕ 無人結帳科技
+            </span>
+            <span class="font-mono text-xs text-slate-400 font-bold">02 / 05</span>
+          </div>
+
+          <div class="relative z-20 mt-32">
+            <h3 class="text-xl sm:text-2xl font-extrabold text-white group-hover:text-mint-400 transition-colors">
+              智慧商店情境教室
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 mt-2">
+              探索 OMO 線上線下融合、RFID 感應、智能貨架動線數據追蹤與無人化零售經營機制。
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="text-[11px] px-2.5 py-1 rounded-md bg-white/10 text-slate-200">RFID 智慧感應</span>
+              <span class="text-[11px] px-2.5 py-1 rounded-md bg-white/10 text-slate-200">零售大數據流動</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 3: 個案教學研討室 (4 cols) -->
+        <div class="lg:col-span-4 glass-dark rounded-3xl p-7 border border-white/10 glass-hover relative overflow-hidden flex flex-col justify-between group cursor-pointer" onclick="showFacilityModal(0)">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10 pointer-events-none"></div>
+          
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" 
+               alt="個案教學研討室" 
+               class="absolute inset-0 w-full h-full object-cover object-center opacity-30 group-hover:scale-105 transition-transform duration-700">
+
+          <div class="relative z-20 flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30 flex items-center gap-1.5">
+              <i data-lucide="users" class="w-3.5 h-3.5"></i>
+              翻轉課堂 ✕ 階梯研討
+            </span>
+            <span class="font-mono text-xs text-slate-400 font-bold">03 / 05</span>
+          </div>
+
+          <div class="relative z-20 mt-28">
+            <h3 class="text-xl font-extrabold text-white group-hover:text-mint-400 transition-colors">
+              個案教學研討室
+            </h3>
+            <p class="text-xs text-slate-300 mt-2">
+              哈佛式階梯型視野，多角度收音麥克風與無死角白板討論牆，深度批判辯證真實商業案例。
+            </p>
+          </div>
+        </div>
+
+        <!-- Bento 4: 國際商務情境教室 (4 cols) -->
+        <div class="lg:col-span-4 glass-dark rounded-3xl p-7 border border-white/10 glass-hover relative overflow-hidden flex flex-col justify-between group cursor-pointer" onclick="showFacilityModal(2)">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10 pointer-events-none"></div>
+          
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" 
+               alt="國際商務教室" 
+               class="absolute inset-0 w-full h-full object-cover object-center opacity-30 group-hover:scale-105 transition-transform duration-700">
+
+          <div class="relative z-20 flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30 flex items-center gap-1.5">
+              <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+              跨國視訊 ✕ 高階商務
+            </span>
+            <span class="font-mono text-xs text-slate-400 font-bold">04 / 05</span>
+          </div>
+
+          <div class="relative z-20 mt-28">
+            <h3 class="text-xl font-extrabold text-white group-hover:text-mint-400 transition-colors">
+              國際商務情境教室
+            </h3>
+            <p class="text-xs text-slate-300 mt-2">
+              配備獨立隔音高階視訊連線系統，供跨國姊妹校會議、外商模擬談判與海外實習遠距發表。
+            </p>
+          </div>
+        </div>
+
+        <!-- Bento 5: 簡報與溝通教室 (4 cols) -->
+        <div class="lg:col-span-4 glass-dark rounded-3xl p-7 border border-white/10 glass-hover relative overflow-hidden flex flex-col justify-between group cursor-pointer" onclick="showFacilityModal(3)">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10 pointer-events-none"></div>
+          
+          <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80" 
+               alt="簡報與溝通教室" 
+               class="absolute inset-0 w-full h-full object-cover object-center opacity-30 group-hover:scale-105 transition-transform duration-700">
+
+          <div class="relative z-20 flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-cyberCyan-500/20 text-cyberCyan-300 border border-cyberCyan-500/30 flex items-center gap-1.5">
+              <i data-lucide="presentation" class="w-3.5 h-3.5"></i>
+              商業提案 ✕ 影音直播
+            </span>
+            <span class="font-mono text-xs text-slate-400 font-bold">05 / 05</span>
+          </div>
+
+          <div class="relative z-20 mt-28">
+            <h3 class="text-xl font-extrabold text-white group-hover:text-mint-400 transition-colors">
+              簡報與溝通教室
+            </h3>
+            <p class="text-xs text-slate-300 mt-2">
+              4K 投影雙屏切換、專業講台演講與同步影音回放，鍛鍊精準犀利的商業簡報 Pitch 說服力。
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 為什麼選擇 TCU 經管？四大核心價值 (Value Propositions) -->
+  <section id="why-tcu" class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-mint-400 font-mono text-xs font-bold uppercase tracking-widest">Unrivaled Advantages</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+          為什麼頂尖新世代選擇慈濟大學經管系？
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          不只教你賺取利潤的商業技藝，更為你裝備可持續影響世界的人文視野與全球志業資源。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- 價值 1 -->
+        <div class="glass-dark p-8 rounded-3xl border border-white/5 relative group hover:border-mint-500/40 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-mint-500/10 border border-mint-500/30 text-mint-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i data-lucide="globe-2" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">慈濟全球四大志業 無縫實習接軌</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            擁有全台灣無可比擬的志業體後盾。從「大愛感恩科技」（循環經濟典範）、「靜思書軒」全台連鎖門市、花蓮慈濟醫學中心營運管理處到大愛電視國際行銷部門，皆提供本系學生第一手高階實習與優先就業管道。
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#大愛感恩科技</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#靜思書軒全台門市</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#花蓮慈濟醫院經管</span>
+          </div>
+        </div>
+
+        <!-- 價值 2 -->
+        <div class="glass-dark p-8 rounded-3xl border border-white/5 relative group hover:border-cyberCyan-500/40 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-cyberCyan-500/10 border border-cyberCyan-500/30 text-cyberCyan-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i data-lucide="leaf" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">引領國際的 ESG 永續治理思維</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            慈濟大學於泰晤士高等教育（THE）世界大學影響力排名長期名列前茅。本系將綠色供應鏈、減碳經濟、社會創新及永續報告書編撰深度融入四年課程，培育搶手的 ESG 策略人才。
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#THE世界影響力名校</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#ESG企業永續治理</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#社會責任實踐</span>
+          </div>
+        </div>
+
+        <!-- 價值 3 -->
+        <div class="glass-dark p-8 rounded-3xl border border-white/5 relative group hover:border-mint-500/40 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-300 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i data-lucide="store" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">雙師協同 ✕ 校園品牌微型孵化器</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            每一門核心實務課程均聘請連鎖零售、知名電商與品牌高管協同授課。透過「知足咖啡館」真實經營累積實戰金流、外場溝通與進銷存經驗，畢業前即掌握創業基因。
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#真實咖啡館營運</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#業師一對一指導</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#商業實戰專案</span>
+          </div>
+        </div>
+
+        <!-- 價值 4 -->
+        <div class="glass-dark p-8 rounded-3xl border border-white/5 relative group hover:border-purple-500/40 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 text-purple-300 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i data-lucide="plane" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">海外移地研習與跨國雙聯學位</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            擁有廣泛的歐、美、日、東南亞姊妹校交流管道，並與海外慈濟據點合作跨國暑期研習。提供高額獎助學金支持學生勇敢走出台灣，立足國際商業舞台。
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#跨國交換獎學金</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#雙聯碩學位學程</span>
+            <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">#全球商業視角</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 互動職涯出路雷達 (Interactive Career Pathways Selector) -->
+  <section id="career" class="py-24 bg-obsidian-surface/60 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-cyberCyan-400 font-mono text-xs font-bold uppercase tracking-widest">Career Matrix</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+          未來出路雷達：點選你想成為的領導角色
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">
+          經管系培育的人才遍及現代服務業（80%+）。選擇你的目標職涯，即刻檢視對應的推薦修課、輔導證照與就業出路。
+        </p>
+      </div>
+
+      <!-- 角色切換 Tab 標籤列 -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 max-w-4xl mx-auto mb-10" id="careerTabs">
+        <!-- JS 動態生成按鈕 -->
+      </div>
+
+      <!-- 角色展示卡 (動態互動渲染) -->
+      <div id="careerDisplay" class="glass-dark rounded-3xl p-8 sm:p-10 border border-mint-500/30 max-w-4xl mx-auto transition-all duration-300">
+        <!-- 內容由 JS switchCareerRole() 載入 -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 五大專業素養課程模組 (Curriculum Structure) -->
+  <section id="curriculum" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-mint-400 font-mono text-xs font-bold uppercase tracking-widest">Core Competence</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+          五大核心素養，系統化打造全方位競爭力
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">
+          打破傳統填鴨式教學，以階梯式實作貫穿大學四年，讓每位同學畢業即具備跨領域實戰力。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <!-- 模組 1 -->
+        <div class="glass-dark p-6 rounded-2xl border border-white/5 hover:border-mint-500/40 transition group">
+          <div class="w-12 h-12 rounded-xl bg-mint-500/10 text-mint-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="trending-up" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">市場分析與<br>整合行銷企劃</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            消費者洞察分析、品牌策略、大數據市場研究、數位廣告與社群內容企劃。
+          </p>
+        </div>
+
+        <!-- 模組 2 -->
+        <div class="glass-dark p-6 rounded-2xl border border-white/5 hover:border-mint-500/40 transition group">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-300 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">流通連鎖與<br>門市服務管理</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            知足咖啡館門市輪值實務、連鎖總部經營、外場顧客服務體驗、物流配送供應鏈。
+          </p>
+        </div>
+
+        <!-- 模組 3 -->
+        <div class="glass-dark p-6 rounded-2xl border border-white/5 hover:border-mint-500/40 transition group">
+          <div class="w-12 h-12 rounded-xl bg-cyberCyan-500/10 text-cyberCyan-300 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="cpu" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">電子商務與<br>智慧零售科技</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            無人商店情境應用、RFID 盤點、社群跨境電商、OMO 全通路營運與新零售大數據。
+          </p>
+        </div>
+
+        <!-- 模組 4 -->
+        <div class="glass-dark p-6 rounded-2xl border border-white/5 hover:border-mint-500/40 transition group">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-300 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="badge-dollar-sign" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">商管財經與<br>營運決策應用</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            管理會計、財務報表解讀、企業風險評估、金融商品應用與投資損益分析。
+          </p>
+        </div>
+
+        <!-- 模組 5 -->
+        <div class="glass-dark p-6 rounded-2xl border border-white/5 hover:border-mint-500/40 transition group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="heart" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">人文素養與<br>社會永續創新</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            商業倫理、企業社會責任 (CSR)、社會企業經營、ESG 永續報告與地方創生專案。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 常見問題 FAQ (Interactive Accordion) -->
+  <section id="faq" class="py-20 bg-obsidian-surface/40 border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14">
+        <span class="text-mint-400 font-mono text-xs font-bold uppercase tracking-widest">FAQ</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">高中職考生與家長常見疑問</h2>
+        <p class="text-slate-400 text-sm mt-2">點擊展開解答，為您快速釐清就讀經管系的疑惑</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="glass-dark rounded-2xl border border-white/10 overflow-hidden">
+          <button class="faq-btn w-full px-6 py-4.5 text-left font-bold text-white flex items-center justify-between hover:text-mint-400 transition" onclick="toggleFaq(this)">
+            <span class="text-base">Q1. 慈濟大學經管系跟一般大學企管系有什麼不同？</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6 text-sm text-slate-300 leading-relaxed">
+            <div class="pb-5 pt-1 border-t border-white/5">
+              本系最大的特色在於<strong>「高度實作」與「全球志業生態圈支援」</strong>。我們擁有五大實體實作教室（包含真正對外營運的知足咖啡館、無人智慧商店情境），且每位同學都有機會直接到大愛感恩科技、慈濟醫療體系或全台靜思書軒參與產業實習，徹底告別傳統企管系紙上談兵的缺點。
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="glass-dark rounded-2xl border border-white/10 overflow-hidden">
+          <button class="faq-btn w-full px-6 py-4.5 text-left font-bold text-white flex items-center justify-between hover:text-mint-400 transition" onclick="toggleFaq(this)">
+            <span class="text-base">Q2. 我高中是念社會組（或商管群），數學不好會不會念得很辛苦？</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6 text-sm text-slate-300 leading-relaxed">
+            <div class="pb-5 pt-1 border-t border-white/5">
+              完全不用擔心！經管系的課程重點在於「邏輯思考、市場敏銳度、團隊溝通與商業決策」，而非高深的純數學推導。財經相關課程皆由專任老師從基礎逐步帶領，並配合電腦軟體與個案討論，學習門檻親切扎實。
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="glass-dark rounded-2xl border border-white/10 overflow-hidden">
+          <button class="faq-btn w-full px-6 py-4.5 text-left font-bold text-white flex items-center justify-between hover:text-mint-400 transition" onclick="toggleFaq(this)">
+            <span class="text-base">Q3. 在花蓮讀書會不會缺乏實習或商業人脈資源？</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6 text-sm text-slate-300 leading-relaxed">
+            <div class="pb-5 pt-1 border-t border-white/5">
+              恰恰相反！正因為在花蓮，慈濟四大志業在此擁有全球總部級的充沛資源。此外，本系大量聘請台北、台中知名業界高階主管進行雙師協同教學，並提供寒暑假北部與海外跨國實習獎助金。花蓮得天獨厚的純淨環境更讓同學能心無旁騖，享受最優質的師生互動校園生活。
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="glass-dark rounded-2xl border border-white/10 overflow-hidden">
+          <button class="faq-btn w-full px-6 py-4.5 text-left font-bold text-white flex items-center justify-between hover:text-mint-400 transition" onclick="toggleFaq(this)">
+            <span class="text-base">Q4. 系上如何輔導專業證照？通過率高嗎？</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6 text-sm text-slate-300 leading-relaxed">
+            <div class="pb-5 pt-1 border-t border-white/5">
+              系上將證照輔導完整融入必選修課程中（如門市服務乙/丙級、行銷企劃證照、網路行銷證照、ERP 系統證照等），並在校內設立專業考場與考前模擬衝刺班，每年輔導考取率皆超過 85% 以上。
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 系所聯絡與諮詢窗口 (Direct Leadership & Contact) -->
+  <section id="contact" class="py-24 relative overflow-hidden bg-obsidian">
+    <!-- 飾光 -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-mint-500/10 blur-[130px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- 左側：系主任與窗口資訊 (7 cols) -->
+        <div class="lg:col-span-7 space-y-8">
+          <div>
+            <span class="text-mint-400 font-mono text-xs font-bold uppercase tracking-widest">Connect With Us</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2 leading-tight">
+              開啟你的卓越商管旅程，<br><span class="text-gradient">歡迎預約參訪或線上諮詢。</span>
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base mt-4 leading-relaxed max-w-xl">
+              慈濟大學智慧永續管理學院 經營管理學系師資團隊誠摯歡迎你的加入。無論是升學甄試、課程輔導或產學合作，我們將第一時間為您詳細解答。
+            </p>
+          </div>
+
+          <!-- 系主任與窗口卡片 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="glass-dark p-5 rounded-2xl border border-white/10 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-mint-500 to-cyberCyan-500 flex items-center justify-center text-obsidian font-black text-lg shrink-0">
+                林
+              </div>
+              <div>
+                <div class="text-xs text-mint-400 font-semibold font-mono">DEPARTMENT CHAIR</div>
+                <div class="text-base font-bold text-white">林珍如 系主任</div>
+                <div class="text-xs text-slate-400 mt-0.5">專屬公務及個資權限窗口</div>
+              </div>
+            </div>
+
+            <div class="glass-dark p-5 rounded-2xl border border-white/10 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-mint-400 shrink-0">
+                <i data-lucide="phone-call" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400 font-mono">OFFICE PHONE</div>
+                <div class="text-base font-bold text-white">(03) 857-2677</div>
+                <div class="text-xs text-slate-400 mt-0.5">校內分機 31682 / 33126</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 詳細聯絡管道清單 -->
+          <div class="space-y-3 text-sm text-slate-300">
+            <div class="flex items-center gap-3">
+              <i data-lucide="mail" class="w-4 h-4 text-mint-400 shrink-0"></i>
+              <span>公務聯絡信箱：<strong>ss62@gms.tcu.edu.tw</strong> / lih5374@gms.tcu.edu.tw</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-4 h-4 text-mint-400 shrink-0"></i>
+              <span>系所地址：<strong>970374 花蓮市介仁街67號</strong>（慈濟大學介仁校區）</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="external-link" class="w-4 h-4 text-mint-400 shrink-0"></i>
+              <span>官方歷史網站：<a href="https://mdm.tcu.edu.tw/p/412-1021-2.php" target="_blank" rel="noopener noreferrer" class="text-mint-400 hover:underline">https://mdm.tcu.edu.tw</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右側：線上快速留言/諮詢表單 (5 cols) -->
+        <div class="lg:col-span-5">
+          <div class="glass-dark p-8 rounded-3xl border border-mint-500/30 shadow-2xl relative">
+            <h3 class="text-xl font-bold text-white mb-2">快速線上諮詢留言</h3>
+            <p class="text-xs text-slate-400 mb-6">留下你的問題，系辦專責助教將盡速透過 Email 或電話回覆。</p>
+
+            <form onsubmit="handleInquirySubmit(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1.5">你的姓名 / 暱稱 *</label>
+                <input type="text" required placeholder="例如：陳同學 / 王家長" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-mint-400 transition">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1.5">聯絡電話 / 行動電話 *</label>
+                <input type="tel" required placeholder="0912-345-678" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-mint-400 transition">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1.5">電子郵件 Email *</label>
+                <input type="email" required placeholder="your.name@example.com" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-mint-400 transition">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1.5">感興趣的方向或諮詢內容</label>
+                <select class="w-full px-4 py-2.5 rounded-xl bg-obsidian-card border border-white/10 text-white text-sm focus:outline-none focus:border-mint-400 transition mb-3">
+                  <option>高中生升學個人申請諮詢</option>
+                  <option>繁星推薦或四技二專甄審</option>
+                  <option>轉學考與抵免學分</option>
+                  <option>知足咖啡館與專業教室參訪</option>
+                  <option>企業產學實習媒合</option>
+                </select>
+                <textarea rows="3" placeholder="請填寫你想了解的詳細問題..." class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-mint-400 transition"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-mint-500 to-cyberCyan-500 text-obsidian font-extrabold text-sm hover:opacity-90 transition shadow-lg shadow-mint-500/20">
+                送出諮詢訊息
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 (Footer) -->
+  <footer class="bg-obsidian-surface border-t border-white/5 py-12 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/5">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-mint-500/20 text-mint-400 flex items-center justify-center font-bold">TCU</div>
+          <span class="text-slate-300 font-bold text-sm">慈濟大學 經營管理學系</span>
+          <span class="text-slate-600">|</span>
+          <span class="text-slate-400">智慧永續管理學院</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-6 text-slate-400">
+          <a href="https://www.tcu.edu.tw/" target="_blank" rel="noopener noreferrer" class="hover:text-mint-400 transition">慈濟大學首頁</a>
+          <a href="https://hm.tcu.edu.tw/" target="_blank" rel="noopener noreferrer" class="hover:text-mint-400 transition">智慧永續管理學院</a>
+          <a href="https://www.daait.com/" target="_blank" rel="noopener noreferrer" class="hover:text-mint-400 transition">大愛感恩科技</a>
+          <a href="https://www.jingsi.org/" target="_blank" rel="noopener noreferrer" class="hover:text-mint-400 transition">靜思書軒</a>
+          <a href="https://hlm.tzuchi.com.tw/" target="_blank" rel="noopener noreferrer" class="hover:text-mint-400 transition">花蓮慈濟醫院</a>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div>
+          © <span id="yearSpan"></span> Department of Business Management, Tzu Chi University. All rights reserved.
+        </div>
+        <div class="text-[11px] text-slate-600">
+          依據個人資料保護法，使用者提供之聯絡資訊僅作為公務與升學諮詢用途。
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 浮動互動捷徑 (Floating Action Button) -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+    <button onclick="openModal('visitModal')" class="flex items-center gap-2 px-4 py-3 rounded-full bg-mint-500 hover:bg-mint-400 text-obsidian font-black text-xs shadow-2xl shadow-mint-500/50 transition transform hover:scale-105">
+      <i data-lucide="sparkles" class="w-4 h-4"></i>
+      <span>預約參訪</span>
+    </button>
+  </div>
+
+  <!-- 彈窗 1：教室詳情彈窗 (Facility Detail Modal) -->
+  <div id="facilityModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-obsidian/80 backdrop-blur-md">
+    <div class="glass-dark rounded-3xl max-w-2xl w-full border border-mint-500/40 p-6 sm:p-8 relative shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('facilityModal')" class="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-2">
+        <span id="modalFacTag" class="px-3 py-1 rounded-full text-xs font-bold bg-mint-500/20 text-mint-400 border border-mint-500/30">TAG</span>
+        <span id="modalFacId" class="text-xs text-slate-500 font-mono">01 / 05</span>
+      </div>
+
+      <h3 id="modalFacTitle" class="text-2xl sm:text-3xl font-extrabold text-white mb-1">教室名稱</h3>
+      <p id="modalFacSubtitle" class="text-xs text-mint-400 font-mono mb-4">English Title</p>
+
+      <div class="rounded-2xl overflow-hidden mb-5 border border-white/10 max-h-56">
+        <img id="modalFacImg" src="" alt="教室照片" class="w-full h-full object-cover">
+      </div>
+
+      <p id="modalFacDesc" class="text-slate-300 text-sm leading-relaxed mb-5">
+        描述文字載入中...
+      </p>
+
+      <div class="bg-white/5 rounded-2xl p-4 border border-white/5 mb-6">
+        <h4 class="text-xs font-bold text-mint-400 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          主要專業設備清單
+        </h4>
+        <ul id="modalFacChecklist" class="space-y-2 text-xs text-slate-300">
+          <!-- JS 動態插入 -->
+        </ul>
+      </div>
+
+      <div class="flex justify-end gap-3">
+        <button onclick="closeModal('facilityModal')" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-semibold transition">
+          關閉視窗
+        </button>
+        <button onclick="openModal('visitModal'); closeModal('facilityModal');" class="px-5 py-2.5 rounded-xl bg-mint-500 hover:bg-mint-400 text-obsidian text-xs font-bold transition flex items-center gap-1.5">
+          <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+          預約現場走訪此教室
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 彈窗 2：預約參訪彈窗 (Visit Booking Modal) -->
+  <div id="visitModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-obsidian/80 backdrop-blur-md">
+    <div class="glass-dark rounded-3xl max-w-lg w-full border border-cyberCyan-500/40 p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeModal('visitModal')" class="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="w-10 h-10 rounded-xl bg-cyberCyan-500/20 text-cyberCyan-400 flex items-center justify-center mb-3">
+        <i data-lucide="calendar-check" class="w-5 h-5"></i>
+      </div>
+
+      <h3 class="text-2xl font-bold text-white mb-1">預約參觀特色專業教室</h3>
+      <p class="text-xs text-slate-400 mb-5">歡迎高中生個人、班級參訪團體或家長蒞臨介仁校區，品嚐知足咖啡！</p>
+
+      <form onsubmit="handleVisitSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">預約人姓名 *</label>
+          <input type="text" required placeholder="王同學" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-xs focus:outline-none focus:border-cyberCyan-400">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">聯絡電話 *</label>
+          <input type="tel" required placeholder="0900-000-000" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-xs focus:outline-none focus:border-cyberCyan-400">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">希望參訪日期</label>
+          <input type="date" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-xs focus:outline-none focus:border-cyberCyan-400">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">參訪重點</label>
+          <select class="w-full px-4 py-2.5 rounded-xl bg-obsidian-card border border-white/10 text-white text-xs focus:outline-none focus:border-cyberCyan-400">
+            <option>全部 5 間特色教室全面導覽</option>
+            <option>知足咖啡館門市體驗</option>
+            <option>智慧商店無人結帳情境</option>
+            <option>系主任與教授群親切面談</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyberCyan-500 to-mint-500 text-obsidian font-extrabold text-xs hover:opacity-90 transition shadow-lg">
+          確認提交預約申請
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 提示訊息 Toast 容器 -->
+  <div id="toastMessage" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden glass-dark border border-mint-500 px-6 py-3.5 rounded-2xl text-xs font-bold text-mint-400 shadow-2xl flex items-center gap-2">
+    <i data-lucide="check-circle" class="w-4 h-4"></i>
+    <span id="toastText">訊息已成功送出！</span>
+  </div>
+
+  <!-- JavaScript 核心互動腳本 -->
+  <script>
+    // 專業教室數據庫
+    const facilitiesData = [
+      {
+        tag: '哈佛式案例研討 ✕ 跨域思維',
+        id: 'FACILITY 01',
+        title: '個案教學研討室',
+        subtitle: 'Case Study & Discussion Studio',
+        img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
+        desc: '以哈佛翻轉教育理念打造的階梯型互動研習空間。打破傳統台上講、台下聽的死板模式，鼓勵學生化身跨國企業執行長，針對經營危機、行銷瓶頸與供應鏈重組進行高強度批判辯證。',
+        checklist: [
+          '階梯式環狀無死角座位配置，眼神交流直擊核心',
+          '全室高敏度收音陣列麥克風與智慧聲源追蹤',
+          '大面積白板互動討論牆與即時分組投影展示'
+        ]
+      },
+      {
+        tag: '外場行銷 ✕ 餐飲微型孵化',
+        id: 'FACILITY 02',
+        title: '經營管理實習教室「知足咖啡館」',
+        subtitle: 'Zhizu Cafe Retail Practicum Lab',
+        img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80',
+        desc: '全擬真對外營運的門市服務與外場行銷實習場域。學生自組營運團隊，排班輪值擔任店長、吧台手、外場服務員與會計，實地掌握咖啡豆烘焙進貨、庫存週轉率、顧客滿意度與損益平衡計算。',
+        checklist: [
+          '專業雙孔義式高壓咖啡機、磨豆機與飲品調製吧台',
+          '商業級 POS 智慧點餐收銀系統與後台即時損益報表',
+          '外場顧客服務體驗與 SOP 標準化門市流程培訓'
+        ]
+      },
+      {
+        tag: '跨國談判 ✕ 視訊無延遲',
+        id: 'FACILITY 03',
+        title: '國際商務情境教室',
+        subtitle: 'Global Business & Negotiation Hub',
+        img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+        desc: '專為培養跨國經理人打造的安靜高階談判空間。配備專業級多方視訊連線系統與圓桌會談空間，供學生進行跨國姐妹校學術研習、外語商業談判模擬與海外實習遠距連線面試。',
+        checklist: [
+          '國際規格高畫質遠距視訊會議主機與主動降噪系統',
+          '高階圓桌會談配置，培養國際商務禮儀與談判敏銳度',
+          '支援跨時區姊妹校雙聯學位線上審查與發表'
+        ]
+      },
+      {
+        tag: '精準提案 ✕ 4K影音錄製',
+        id: 'FACILITY 04',
+        title: '簡報與溝通教室',
+        subtitle: 'Pitch & Media Presentation Studio',
+        img: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80',
+        desc: '專業簡報演練與商業提案鍛鍊場域。配備演講舞台、專業燈光與高解析度同步錄影反饋設備，學生可在此反覆演練 TED 式演講與商業競賽 Pitch，並透過影片回放精進台風儀態。',
+        checklist: [
+          '雙屏幕 4K 高畫質投影切換，靈活呈現財務圖表與提案',
+          '影音直播與演講錄製系統，支援即時回放與教練指導',
+          '專業演說講台與立體音場，大幅提升抗壓說服力'
+        ]
+      },
+      {
+        tag: '新零售 ✕ RFID與智能貨架',
+        id: 'FACILITY 05',
+        title: '智慧商店情境 (無人商店模擬)',
+        subtitle: 'Smart Retail & AI Store Simulation',
+        img: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=1200&q=80',
+        desc: '虛擬新零售前瞻實作情境。融合 RFID 感應、QR Code 行動支付、消費者貨架停留時間追蹤與無人化收銀流程，讓學生親身實踐 OMO（線上線下融合）最新零售戰略。',
+        checklist: [
+          '無人商店自助結帳終端設備與電子標籤系統',
+          '熱點動線分析情境，探討消費者選品與視線心理學',
+          '新零售供應鏈自動補貨與智能庫存警示模型'
+        ]
+      }
+    ];
+
+    // 職涯雷達角色數據
+    const careerRoles = [
+      {
+        title: '數位行銷策略師',
+        en: 'Digital Marketing Strategist',
+        icon: 'trending-up',
+        color: 'mint',
+        desc: '掌握消費者行為數據，制定社群傳播、品牌定位與全通路廣告投放策略，是當前各大外商與新創企業的最核心戰力。',
+        courses: ['消費者行為學', '數位行銷與社群經營', '大數據市場研究', '廣告企劃實務'],
+        certs: ['Google 數位行銷證照', 'TBSA 商務企劃認證', 'TIMS 行銷企劃證照'],
+        targets: ['跨國廣告代理商', '品牌行銷總部', '電商平台運營商', '慈濟人文志業行銷處']
+      },
+      {
+        title: '智慧零售儲備幹部',
+        en: 'Smart Retail Management Trainee',
+        icon: 'store',
+        color: 'amber',
+        desc: '統籌實體與無人智慧門市營運，精準掌握庫存週轉、外場服務體驗與進銷存損益分析，快速晉升門市經理與區域督導。',
+        courses: ['流通與連鎖經營管理', '門市服務營運實務', '知足咖啡館營運實習', '供應鏈與物流管理'],
+        certs: ['門市服務乙/丙級技術士', '流通連鎖管理師認證', 'ERP 應用規劃師'],
+        targets: ['大型連鎖超商/超市', '靜思書軒全台門市', '知名餐飲連鎖品牌', '百貨零售生活館']
+      },
+      {
+        title: 'ESG 永續管理顧問',
+        en: 'ESG & Sustainability Consultant',
+        icon: 'leaf',
+        color: 'emerald',
+        desc: '響應全球淨零碳排趨勢，專責企業永續報告書編撰、循環經濟模式規劃與社會責任（CSR）專案執行，極具未來前瞻性。',
+        courses: ['企業倫理與社會責任', '循環經濟與綠色創新', 'ESG 永續報告書實作', '社會企業專題研討'],
+        certs: ['永續發展碳盤查管理師', 'ISO 14064 碳足跡稽核員', 'CSR 企劃顧問證照'],
+        targets: ['各大上市櫃企業永續辦公室', '大愛感恩科技', '永續顧問管理顧問公司', '非營利組織與社企']
+      },
+      {
+        title: '國際商務營運專員',
+        en: 'Global Commerce Specialist',
+        icon: 'globe',
+        color: 'purple',
+        desc: '負責跨境商務談判、國際供應鏈溝通與跨國市場開拓，具備流暢外語協調能力與跨文化管理素養。',
+        courses: ['國際企業管理', '國際商務談判實務', '跨國供應鏈管理', '外語商務簡報溝通'],
+        certs: ['多益 (TOEIC) 800+ 輔導', '國際貿易業務丙級', '外銷專案企劃師'],
+        targets: ['跨國貿易商', '外商在台分公司', '科技大廠全球運籌部門', '慈濟海外各分支據點']
+      },
+      {
+        title: '新創品牌創辦人 / 地方創生家',
+        en: 'Brand Founder & Local Innovator',
+        icon: 'rocket',
+        color: 'cyan',
+        desc: '將在地特色或原創點子轉化為可持續盈利的微型事業，從知足咖啡館累積的營運經驗出發，實現自主創業夢想。',
+        courses: ['微型創業與商業模式', '創新創業實務專題', '地方創生行銷實作', '財務分析與投資評估'],
+        certs: ['創業育成輔導證書', '微型企業經營管理認證', '政府青創專案補助計畫'],
+        targets: ['創立文創風格品牌', '東台灣地方創生團隊', '自營特色休閒餐飲', '社群電商選品工作室']
+      }
+    ];
+
+    let currentRoleIndex = 0;
+
+    // 初始化載入
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      document.getElementById('yearSpan').textContent = new Date().getFullYear();
+      renderCareerTabs();
+      switchCareerRole(0);
+
+      // 行動版選單切換
+      const menuBtn = document.getElementById('mobileMenuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    });
+
+    // 渲染職涯標籤列
+    function renderCareerTabs() {
+      const tabsContainer = document.getElementById('careerTabs');
+      tabsContainer.innerHTML = careerRoles.map((role, idx) => `
+        <button onclick="switchCareerRole(${idx})" class="career-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-2 ${idx === 0 ? 'bg-mint-500 text-obsidian shadow-lg shadow-mint-500/20' : 'bg-white/5 text-slate-300 hover:bg-white/10'}" data-index="${idx}">
+          <i data-lucide="${role.icon}" class="w-4 h-4"></i>
+          <span>${role.title}</span>
+        </button>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    // 切換職涯卡片內容
+    function switchCareerRole(index) {
+      currentRoleIndex = index;
+      const role = careerRoles[index];
+      
+      // 更新按鈕樣式
+      document.querySelectorAll('.career-tab-btn').forEach((btn, idx) => {
+        if (idx === index) {
+          btn.className = 'career-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-mint-500 text-obsidian shadow-lg shadow-mint-500/20';
+        } else {
+          btn.className = 'career-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-white/5 text-slate-300 hover:bg-white/10';
+        }
+      });
+
+      const display = document.getElementById('careerDisplay');
+      display.innerHTML = `
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
+          <div>
+            <div class="text-xs font-mono font-bold text-mint-400 tracking-wider uppercase">${role.en}</div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1 flex items-center gap-2.5">
+              <span>${role.title}</span>
+            </h3>
+          </div>
+          <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300 font-semibold self-start md:self-auto">
+            TCU 經管系推薦養成路徑
+          </span>
+        </div>
+
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed my-6">
+          ${role.desc}
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+          <!-- 核心養成課程 -->
+          <div class="bg-white/5 p-4.5 rounded-2xl border border-white/5">
+            <div class="text-xs font-bold text-mint-400 mb-3 flex items-center gap-1.5">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              <span>推薦核心課程</span>
+            </div>
+            <ul class="space-y-1.5 text-xs text-slate-300">
+              ${role.courses.map(c => `<li>• ${c}</li>`).join('')}
+            </ul>
+          </div>
+
+          <!-- 必備專業證照 -->
+          <div class="bg-white/5 p-4.5 rounded-2xl border border-white/5">
+            <div class="text-xs font-bold text-cyberCyan-400 mb-3 flex items-center gap-1.5">
+              <i data-lucide="award" class="w-4 h-4"></i>
+              <span>輔導考取證照</span>
+            </div>
+            <ul class="space-y-1.5 text-xs text-slate-300">
+              ${role.certs.map(c => `<li>• ${c}</li>`).join('')}
+            </ul>
+          </div>
+
+          <!-- 主要就業出路 -->
+          <div class="bg-white/5 p-4.5 rounded-2xl border border-white/5">
+            <div class="text-xs font-bold text-amber-300 mb-3 flex items-center gap-1.5">
+              <i data-lucide="building-2" class="w-4 h-4"></i>
+              <span>畢業直通企業</span>
+            </div>
+            <ul class="space-y-1.5 text-xs text-slate-300">
+              ${role.targets.map(t => `<li>• ${t}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    // 彈窗開關控制
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.remove('hidden');
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+
+    // 顯示教室彈窗
+    function showFacilityModal(index) {
+      const data = facilitiesData[index];
+      if (!data) return;
+
+      document.getElementById('modalFacTag').textContent = data.tag;
+      document.getElementById('modalFacId').textContent = data.id;
+      document.getElementById('modalFacTitle').textContent = data.title;
+      document.getElementById('modalFacSubtitle').textContent = data.subtitle;
+      document.getElementById('modalFacImg').src = data.img;
+      document.getElementById('modalFacDesc').textContent = data.desc;
+
+      const checklistContainer = document.getElementById('modalFacChecklist');
+      checklistContainer.innerHTML = data.checklist.map(item => `
+        <li class="flex items-start gap-2">
+          <i data-lucide="check" class="w-4 h-4 text-mint-400 shrink-0 mt-0.5"></i>
+          <span>${item}</span>
+        </li>
+      `).join('');
+
+      lucide.createIcons();
+      openModal('facilityModal');
+    }
+
+    // FAQ 手風琴效果
+    function toggleFaq(btn) {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('svg') || btn.querySelector('i');
+      
+      if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        content.style.maxHeight = '0px';
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      } else {
+        // 先關閉其他
+        document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
+        document.querySelectorAll('.faq-btn i, .faq-btn svg').forEach(i => i.style.transform = 'rotate(0deg)');
+        
+        content.style.maxHeight = content.scrollHeight + 'px';
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // 下載簡章提示
+    function downloadBrochure() {
+      showToast('正在為您準備「慈濟大學經營管理學系 招生手冊與修業指引 PDF」！');
+      setTimeout(() => {
+        window.open('https://mdm.tcu.edu.tw/', '_blank');
+      }, 1200);
+    }
+
+    // 諮詢表單送出
+    function handleInquirySubmit(e) {
+      e.preventDefault();
+      showToast('諮詢留言已送達！系辦專人將於 24 小時內與您聯繫。');
+      e.target.reset();
+    }
+
+    // 參訪預約送出
+    function handleVisitSubmit(e) {
+      e.preventDefault();
+      closeModal('visitModal');
+      showToast('預約參訪成功！我們已發送確認信件至您的手機與信箱。');
+      e.target.reset();
+    }
+
+    // 浮動提示 Toast
+    function showToast(text) {
+      const toast = document.getElementById('toastMessage');
+      document.getElementById('toastText').textContent = text;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>

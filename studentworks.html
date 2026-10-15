@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>學生作品 ｜ TCU 經管系 - 慈濟大學經營管理學系</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#050a0a',
+              card: 'rgba(11, 23, 24, 0.72)',
+              border: 'rgba(45, 212, 191, 0.18)',
+              cyan: '#2dd4bf',
+              neon: '#14b8a6',
+              bright: '#00f2fe'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 背景星雲柔光感 */
+    body {
+      background-color: #040909;
+      background-image: 
+        radial-gradient(circle at 50% 12%, rgba(20, 184, 166, 0.16) 0%, transparent 48%),
+        radial-gradient(circle at 15% 40%, rgba(13, 148, 136, 0.1) 0%, transparent 42%),
+        radial-gradient(circle at 85% 70%, rgba(6, 182, 212, 0.08) 0%, transparent 45%);
+      background-attachment: fixed;
+      color: #e2e8f0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* 玻璃擬態樣式 */
+    .glass-panel {
+      background: rgba(10, 20, 22, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(45, 212, 191, 0.14);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    .glass-nav {
+      background: rgba(6, 15, 17, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(45, 212, 191, 0.16);
+      box-shadow: 0 16px 40px -15px rgba(0, 0, 0, 0.7);
+    }
+
+    /* 文字漸層特效 */
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 45%, #2dd4bf 85%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* 霓虹按鈕 */
+    .neon-btn {
+      background: linear-gradient(135deg, #2dd4bf 0%, #06b6d4 100%);
+      box-shadow: 0 0 20px rgba(45, 212, 191, 0.35);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .neon-btn:hover {
+      box-shadow: 0 0 30px rgba(45, 212, 191, 0.6);
+      transform: translateY(-1px);
+    }
+
+    /* 骨架屏光暈流動效果 */
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .shimmer-effect::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.05), transparent);
+      animation: shimmer 2.6s infinite;
+    }
+  </style>
+</head>
+<body class="flex flex-col justify-between">
+
+  <!-- 頂部資訊公告列 -->
+  <div class="w-full bg-[#030607]/80 border-b border-teal-950/40 text-xs text-gray-400 py-2.5 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="font-semibold text-teal-400">2026–2027 學年度</span>
+        <span class="text-gray-600">|</span>
+        <span class="text-gray-300">智慧永續管理學院・慈濟大學經營管理學系 全方位實作導向招生中</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs">
+        <a href="javascript:void(0)" class="hover:text-teal-300 transition-colors flex items-center gap-1 text-gray-400">
+          系所舊官網 <i class="ph ph-arrow-square-out text-sm"></i>
+        </a>
+        <a href="javascript:void(0)" class="text-teal-400 hover:text-teal-300 font-medium transition-colors">
+          立即諮詢
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 懸浮導航欄 Header -->
+  <header class="sticky top-4 z-50 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto glass-nav rounded-2xl px-4 py-3 sm:py-3.5 flex items-center justify-between transition-all">
+      
+      <!-- 品牌 Logo 區 -->
+      <a href="javascript:void(0)" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-400 to-cyan-500 p-0.5 flex items-center justify-center shadow-lg shadow-teal-500/20 group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-[#061517] rounded-[10px] flex items-center justify-center">
+            <i class="ph-fill ph-lightning text-teal-400 text-xl"></i>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-white font-extrabold tracking-wide text-base">TCU 經管系</span>
+            <span class="text-[10px] px-1.5 py-0.2 rounded-full border border-teal-500/40 text-teal-300 font-mono">BM</span>
+          </div>
+          <p class="text-[9px] text-gray-400 font-medium tracking-wider uppercase">DEPT. OF BUSINESS MANAGEMENT</p>
+        </div>
+      </a>
+
+      <!-- 導航連結 (選單) -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-medium">
+        <a href="javascript:void(0)" class="px-3.5 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors">首頁</a>
+        
+        <!-- 當前頁面：學生作品 -->
+        <a href="javascript:void(0)" class="relative px-3.5 py-2 rounded-lg text-teal-300 bg-teal-500/10 font-semibold border border-teal-500/25 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+          學生作品
+        </a>
+
+        <a href="javascript:void(0)" class="px-3.5 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-1.5">
+          5大實戰情境
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30 font-bold">HOT</span>
+        </a>
+        <a href="javascript:void(0)" class="px-3.5 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors">辦學核心優勢</a>
+        <a href="javascript:void(0)" class="px-3.5 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors">職涯雷達</a>
+        <a href="javascript:void(0)" class="px-3.5 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors">核心素養</a>
+        <a href="javascript:void(0)" class="px-3.5 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors">常見問題</a>
+      </nav>
+
+      <!-- 右側動作按鈕 -->
+      <div class="flex items-center gap-2.5">
+        <button class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-gray-200 border border-teal-500/30 bg-teal-950/30 hover:bg-teal-900/40 hover:border-teal-400/50 transition-all">
+          <i class="ph ph-calendar-check text-teal-400 text-sm"></i>
+          預約參訪教室
+        </button>
+
+        <button class="neon-btn px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold text-gray-950 flex items-center gap-1.5">
+          <span>聯絡系辦</span>
+          <i class="ph-bold ph-arrow-right text-xs"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 主內容區 Hero Section -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16 w-full">
+    
+    <!-- 頂端膠囊標籤 -->
+    <div class="flex justify-center mb-6">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-teal-500/30 bg-teal-950/40 text-xs sm:text-sm text-teal-300 shadow-sm backdrop-blur-md">
+        <i class="ph-fill ph-sparkle text-teal-400"></i>
+        <span>實作成果・多元展能 ｜ 記錄課堂與實務專案的精彩歷程</span>
+      </div>
+    </div>
+
+    <!-- 主標題與副標題 -->
+    <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 sm:mb-6">
+        <span class="gradient-text">學生作品</span>
+      </h1>
+      <p class="text-base sm:text-lg text-gray-400 leading-relaxed font-light">
+        捕捉實戰學習中的創新亮點，匯聚專題成果、活動剪影與動態影音記錄。
+      </p>
+    </div>
+
+    <!-- 分類切換按鈕 (篩選列) -->
+    <div class="flex items-center justify-center flex-wrap gap-2 sm:gap-3 mb-10">
+      <button class="px-5 py-2 rounded-xl text-sm font-medium bg-teal-500/20 text-teal-300 border border-teal-500/40 shadow-sm">
+        全部內容
+      </button>
+      <button class="px-5 py-2 rounded-xl text-sm font-medium text-gray-400 hover:text-gray-200 border border-white/5 hover:border-teal-500/20 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+        照片記錄
+      </button>
+      <button class="px-5 py-2 rounded-xl text-sm font-medium text-gray-400 hover:text-gray-200 border border-white/5 hover:border-teal-500/20 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+        動態影片
+      </button>
+      <button class="px-5 py-2 rounded-xl text-sm font-medium text-gray-400 hover:text-gray-200 border border-white/5 hover:border-teal-500/20 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+        實作專案
+      </button>
+    </div>
+
+    <!-- 核心展示區：暫無內容提示卡片 -->
+    <div class="relative glass-panel rounded-3xl p-8 sm:p-14 max-w-4xl mx-auto border-dashed border-teal-500/30 overflow-hidden text-center mb-14">
+      
+      <!-- 背景光暈裝飾 -->
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- 圖標狀態 -->
+      <div class="relative mx-auto w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-b from-teal-500/20 to-teal-950/40 border border-teal-500/30 flex items-center justify-center mb-6 shadow-inner">
+        <i class="ph ph-video-camera text-4xl sm:text-5xl text-teal-400 animate-pulse"></i>
+        <span class="absolute -top-1 -right-1 flex h-4 w-4">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-4 w-4 bg-teal-500"></span>
+        </span>
+      </div>
+
+      <!-- 標題與說明文字 -->
+      <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
+        精彩記錄準備中，暫無內容
+      </h2>
+      <p class="text-sm sm:text-base text-gray-400 max-w-lg mx-auto leading-relaxed mb-8">
+        本專區目前正在彙整最新的課堂實況照片與實作影音記錄。<br class="hidden sm:inline">
+        更多具備深度與創意的成果即將陸續更新上架，敬請期待！
+      </p>
+
+      <!-- 操作輔助按鈕 -->
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="javascript:void(0)" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium border border-teal-500/30 text-teal-300 hover:bg-teal-500/10 transition-colors flex items-center gap-2">
+          <i class="ph ph-bell-ringing"></i>
+          訂閱更新通知
+        </a>
+        <a href="javascript:void(0)" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-medium bg-white/5 hover:bg-white/10 text-gray-300 transition-colors flex items-center gap-2">
+          <i class="ph ph-arrow-left"></i>
+          返回系所首頁
+        </a>
+      </div>
+    </div>
+
+    <!-- 預留未來照片/影片的卡片骨架預覽 (不顯示課程名稱) -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-sm font-semibold text-gray-400 tracking-wider flex items-center gap-2">
+          <i class="ph ph-squares-four text-teal-400"></i>
+          預覽版塊佈局
+        </h3>
+        <span class="text-xs text-teal-500/80">後續照片與影音收納位</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- 骨架卡片 1 (影音預留位) -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-teal-500/15 group hover:border-teal-500/35 transition-all">
+          <div class="relative h-48 bg-teal-950/30 flex items-center justify-center shimmer-effect overflow-hidden">
+            <i class="ph ph-film-strip text-4xl text-teal-500/30 group-hover:text-teal-400/60 transition-colors"></i>
+            <span class="absolute top-3 left-3 text-[11px] font-medium px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30">
+              影音記錄
+            </span>
+          </div>
+          <div class="p-5">
+            <div class="h-4 bg-teal-900/30 rounded w-3/4 mb-3"></div>
+            <div class="h-3 bg-teal-900/20 rounded w-1/2"></div>
+          </div>
+        </div>
+
+        <!-- 骨架卡片 2 (照片預留位) -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-teal-500/15 group hover:border-teal-500/35 transition-all">
+          <div class="relative h-48 bg-teal-950/30 flex items-center justify-center shimmer-effect overflow-hidden">
+            <i class="ph ph-image text-4xl text-teal-500/30 group-hover:text-teal-400/60 transition-colors"></i>
+            <span class="absolute top-3 left-3 text-[11px] font-medium px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+              活動照片
+            </span>
+          </div>
+          <div class="p-5">
+            <div class="h-4 bg-teal-900/30 rounded w-2/3 mb-3"></div>
+            <div class="h-3 bg-teal-900/20 rounded w-1/3"></div>
+          </div>
+        </div>
+
+        <!-- 骨架卡片 3 (照片/專案預留位) -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-teal-500/15 group hover:border-teal-500/35 transition-all sm:col-span-2 lg:col-span-1">
+          <div class="relative h-48 bg-teal-950/30 flex items-center justify-center shimmer-effect overflow-hidden">
+            <i class="ph ph-camera text-4xl text-teal-500/30 group-hover:text-teal-400/60 transition-colors"></i>
+            <span class="absolute top-3 left-3 text-[11px] font-medium px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30">
+              現場實錄
+            </span>
+          </div>
+          <div class="p-5">
+            <div class="h-4 bg-teal-900/30 rounded w-4/5 mb-3"></div>
+            <div class="h-3 bg-teal-900/20 rounded w-2/5"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 頁尾 Footer -->
+  <footer class="w-full border-t border-teal-950/50 bg-[#030708]/90 py-8 px-4 sm:px-8 mt-12 text-xs text-gray-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-teal-400 font-bold">TCU BM</span>
+        <span>© 慈濟大學 經營管理學系 版權所有</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="javascript:void(0)" class="hover:text-teal-300 transition-colors">隱私權保護政策</a>
+        <a href="javascript:void(0)" class="hover:text-teal-300 transition-colors">校園地圖與交通</a>
+        <a href="javascript:void(0)" class="hover:text-teal-300 transition-colors">系所辦公室位置</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
