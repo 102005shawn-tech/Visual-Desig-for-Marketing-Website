@@ -46,6 +46,7 @@
             'marquee': 'marquee 25s linear infinite',
             'float-slow': 'float 6s ease-in-out infinite',
             'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+            'spin-slow': 'spin 24s linear infinite',
           },
           keyframes: {
             marquee: {
@@ -97,6 +98,30 @@
       background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 60%),
                   radial-gradient(circle at 80% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
     }
+
+    /* 3D 球狀軌道舞台樣式 */
+    .sphere-stage {
+      perspective: 1200px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+    }
+    .sphere-core {
+      background: radial-gradient(circle at 35% 35%, rgba(52, 211, 153, 0.22), rgba(14, 165, 233, 0.08) 55%, rgba(8, 13, 20, 0.9) 85%);
+      box-shadow: inset 0 0 40px rgba(52, 211, 153, 0.25), 0 0 70px rgba(16, 185, 129, 0.15);
+    }
+    .sphere-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      will-change: transform, opacity;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .sphere-card:hover {
+      border-color: rgba(52, 211, 153, 0.8);
+      box-shadow: 0 20px 50px rgba(0, 245, 160, 0.3);
+    }
+
     /* 自訂捲軸 */
     ::-webkit-scrollbar { width: 7px; }
     ::-webkit-scrollbar-track { background: #080d14; }
@@ -152,7 +177,7 @@
           <span>5大實戰情境</span>
           <span class="text-[9px] px-1 bg-mint-500/20 text-mint-400 rounded">HOT</span>
         </a>
-       <a href="studentworks.html">學生作品</a>
+        <a href="studentworks.html" class="px-3 py-2 rounded-lg hover:text-mint-400 hover:bg-white/5 transition">學生作品</a>
         <a href="#why-tcu" class="px-3 py-2 rounded-lg hover:text-mint-400 hover:bg-white/5 transition">辦學核心優勢</a>
         <a href="#career" class="px-3 py-2 rounded-lg hover:text-mint-400 hover:bg-white/5 transition">職涯雷達</a>
         <a href="#curriculum" class="px-3 py-2 rounded-lg hover:text-mint-400 hover:bg-white/5 transition">核心素養</a>
@@ -180,6 +205,7 @@
     <!-- 行動版折疊選單 -->
     <div id="mobileMenu" class="hidden md:hidden mt-2 glass-dark rounded-2xl p-4 border border-white/10 space-y-2">
       <a href="#facilities" class="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/5 mobile-link">5大特色實戰教室</a>
+      <a href="studentworks.html" class="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/5 mobile-link">學生作品</a>
       <a href="#why-tcu" class="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/5 mobile-link">辦學核心優勢</a>
       <a href="#career" class="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/5 mobile-link">未來出路雷達</a>
       <a href="#curriculum" class="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/5 mobile-link">五大專業模組</a>
@@ -192,7 +218,7 @@
   </header>
 
   <!-- 英雄主視覺區 (Hero Section) -->
-  <section id="hero" class="relative pt-12 pb-20 sm:pt-20 sm:pb-32 overflow-hidden glow-bg">
+  <section id="hero" class="relative pt-12 pb-20 sm:pt-16 sm:pb-28 overflow-hidden glow-bg">
     <!-- 背景裝飾光斑與線條 -->
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-mint-500/10 rounded-full blur-[130px] pointer-events-none"></div>
     <div class="absolute bottom-10 right-10 w-[450px] h-[450px] bg-cyberCyan-500/10 rounded-full blur-[110px] pointer-events-none"></div>
@@ -221,7 +247,7 @@
         </p>
 
         <!-- CTA 按鈕群 -->
-        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
           <a href="#facilities" class="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-mint-500 to-emerald-500 hover:from-mint-400 hover:to-emerald-400 text-obsidian font-extrabold text-sm shadow-xl shadow-mint-500/20 transition transform hover:-translate-y-1 flex items-center gap-2">
             <span>探索 5 大特色實作教室</span>
             <i data-lucide="compass" class="w-4 h-4"></i>
@@ -233,8 +259,53 @@
         </div>
       </div>
 
+      <!-- 3D 球狀立體循環相簿展示區 (Interactive 3D Sphere Carousel) -->
+      <div class="mt-14 sm:mt-16 max-w-5xl mx-auto">
+        <div class="flex items-center justify-center gap-2 text-xs text-slate-400 mb-3">
+          <i data-lucide="orbit" class="w-4 h-4 text-mint-400 animate-spin-slow"></i>
+          <span>按住左右拖曳或點擊下方控制鈕，自由旋轉檢視系所實況</span>
+        </div>
+
+        <!-- 3D 球體主舞台 -->
+        <div id="sphereStage" class="sphere-stage relative w-full h-[310px] sm:h-[390px] flex items-center justify-center cursor-grab active:cursor-grabbing overflow-hidden rounded-3xl">
+          <!-- 中央全息能量核心球體裝飾 -->
+          <div class="sphere-core w-52 h-52 sm:w-64 sm:h-64 rounded-full border border-mint-400/20 relative flex items-center justify-center pointer-events-none">
+            <div class="absolute inset-3 rounded-full border border-dashed border-cyberCyan-400/25 animate-spin-slow"></div>
+            <div class="absolute -inset-6 rounded-full border border-mint-500/10"></div>
+            <div class="text-center opacity-50">
+              <div class="font-mono text-[10px] tracking-[0.25em] text-mint-400">TCU BM</div>
+              <div class="text-[11px] font-bold text-slate-400 mt-0.5">360° GALLERY</div>
+            </div>
+          </div>
+
+          <!-- 動態卡片將由 JS 注入至此容器 -->
+          <div id="sphereCardsContainer" class="absolute inset-0 pointer-events-none"></div>
+        </div>
+
+        <!-- 球體手動控制列 -->
+        <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
+          <div class="glass-dark px-3 py-2 rounded-2xl border border-white/10 flex items-center gap-2 shadow-xl">
+            <button onclick="stepSphere(-1)" title="上一張" class="p-2 rounded-xl bg-white/5 hover:bg-mint-500/20 text-slate-300 hover:text-mint-400 transition">
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            </button>
+
+            <button id="spherePlayPauseBtn" onclick="toggleSphereAutoPlay()" class="px-3.5 py-1.5 rounded-xl bg-mint-500/15 hover:bg-mint-500/25 border border-mint-500/30 text-mint-400 text-xs font-bold flex items-center gap-1.5 transition">
+              <i id="spherePlayPauseIcon" data-lucide="pause" class="w-3.5 h-3.5"></i>
+              <span id="spherePlayPauseText">自動循環中</span>
+            </button>
+
+            <button onclick="stepSphere(1)" title="下一張" class="p-2 rounded-xl bg-white/5 hover:bg-mint-500/20 text-slate-300 hover:text-mint-400 transition">
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- 快速定位指示點 -->
+          <div id="sphereDots" class="glass-dark px-3.5 py-2.5 rounded-2xl border border-white/10 flex items-center gap-2"></div>
+        </div>
+      </div>
+
       <!-- 關鍵數據指標浮動列 -->
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
         <div class="glass-dark p-5 rounded-2xl border border-white/5 text-center relative overflow-hidden group">
           <div class="absolute -right-4 -bottom-4 w-16 h-16 bg-mint-500/10 rounded-full blur-xl group-hover:bg-mint-500/20 transition"></div>
           <div class="text-3xl sm:text-4xl font-black text-gradient font-mono">5<span class="text-mint-400 text-xl font-bold">+</span></div>
@@ -268,7 +339,6 @@
     <!-- 跑馬燈標籤列 (Interactive Ticker) -->
     <div class="mt-14 py-3.5 bg-obsidian-surface/60 border-y border-white/5 backdrop-blur-md overflow-hidden relative">
       <div class="flex whitespace-nowrap animate-marquee">
-        <!-- 重複兩次以達到無限循環 -->
         <div class="flex items-center gap-8 text-xs font-bold text-slate-400 uppercase tracking-widest shrink-0">
           <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mint-400"></i> 哈佛式個案討論</span>
           <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyberCyan-400"></i> 知足咖啡館門市實戰</span>
@@ -323,7 +393,6 @@
         <div class="lg:col-span-7 glass-dark rounded-3xl p-7 border border-white/10 glass-hover relative overflow-hidden flex flex-col justify-between group cursor-pointer" onclick="showFacilityModal(1)">
           <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10 pointer-events-none"></div>
           
-          <!-- 背景情境照 -->
           <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" 
                alt="知足咖啡館實習教室" 
                class="absolute inset-0 w-full h-full object-cover object-center opacity-30 group-hover:scale-105 transition-transform duration-700">
@@ -561,14 +630,10 @@
       </div>
 
       <!-- 角色切換 Tab 標籤列 -->
-      <div class="flex flex-wrap items-center justify-center gap-2.5 max-w-4xl mx-auto mb-10" id="careerTabs">
-        <!-- JS 動態生成按鈕 -->
-      </div>
+      <div class="flex flex-wrap items-center justify-center gap-2.5 max-w-4xl mx-auto mb-10" id="careerTabs"></div>
 
       <!-- 角色展示卡 (動態互動渲染) -->
-      <div id="careerDisplay" class="glass-dark rounded-3xl p-8 sm:p-10 border border-mint-500/30 max-w-4xl mx-auto transition-all duration-300">
-        <!-- 內容由 JS switchCareerRole() 載入 -->
-      </div>
+      <div id="careerDisplay" class="glass-dark rounded-3xl p-8 sm:p-10 border border-mint-500/30 max-w-4xl mx-auto transition-all duration-300"></div>
 
     </div>
   </section>
@@ -886,9 +951,7 @@
           <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
           主要專業設備清單
         </h4>
-        <ul id="modalFacChecklist" class="space-y-2 text-xs text-slate-300">
-          <!-- JS 動態插入 -->
-        </ul>
+        <ul id="modalFacChecklist" class="space-y-2 text-xs text-slate-300"></ul>
       </div>
 
       <div class="flex justify-end gap-3">
@@ -946,6 +1009,19 @@
     </div>
   </div>
 
+  <!-- 彈窗 3：相簿全螢幕燈箱檢視 (Lightbox Modal) -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-obsidian/90 backdrop-blur-lg" onclick="if(event.target===this) closeModal('lightboxModal')">
+    <div class="relative max-w-4xl w-full flex flex-col items-center">
+      <button onclick="closeModal('lightboxModal')" class="self-end mb-3 p-2.5 rounded-full bg-white/10 hover:bg-mint-500 hover:text-obsidian text-white transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div class="glass-dark p-2 rounded-3xl border border-mint-500/40 shadow-2xl overflow-hidden">
+        <img id="lightboxImg" src="" alt="放大檢視" class="max-h-[75vh] w-auto rounded-2xl object-contain">
+      </div>
+      <div id="lightboxCaption" class="mt-3 text-xs font-semibold text-mint-400 tracking-wide"></div>
+    </div>
+  </div>
+
   <!-- 提示訊息 Toast 容器 -->
   <div id="toastMessage" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden glass-dark border border-mint-500 px-6 py-3.5 rounded-2xl text-xs font-bold text-mint-400 shadow-2xl flex items-center gap-2">
     <i data-lucide="check-circle" class="w-4 h-4"></i>
@@ -954,7 +1030,230 @@
 
   <!-- JavaScript 核心互動腳本 -->
   <script>
-    // 專業教室數據庫
+    // ==========================================
+    // 1. 3D 球狀循環相簿數據與引擎 (graph 資料夾圖片)
+    // ==========================================
+    const spherePhotos = [
+      {
+        src: 'graph/1%20(1).JPG',
+        label: 'TCU 經管實戰現場 01',
+        tag: 'ACTIVITY'
+      },
+      {
+        src: 'graph/1.jpg',
+        label: 'TCU 經管實戰現場 02',
+        tag: 'CAMPUS'
+      },
+      {
+        src: 'graph/DSC_4343.jpg',
+        label: 'TCU 經管實戰現場 03',
+        tag: 'HIGHLIGHT'
+      },
+      {
+        src: 'graph/%E8%A8%BB%E8%A7%A3%202026-11-12%20103436.png',
+        label: 'TCU 經管實戰現場 04',
+        tag: 'SHOWCASE'
+      }
+    ];
+
+    let sphereAngle = 0;          // 當前旋轉弧度
+    let sphereTargetAngle = null; // 點擊指定目標角度
+    let sphereVelocity = 0;       // 拖曳慣性速度
+    let isSphereAuto = true;      // 是否自動循環
+    let isDraggingSphere = false;
+    let dragStartX = 0;
+    let dragMoved = false;
+    let sphereCardElements = [];
+    let sphereDotElements = [];
+
+    function initSphereGallery() {
+      const container = document.getElementById('sphereCardsContainer');
+      const dotsContainer = document.getElementById('sphereDots');
+      const stage = document.getElementById('sphereStage');
+      if (!container || !stage) return;
+
+      // 建立圖片卡片與指示點
+      spherePhotos.forEach((photo, idx) => {
+        const card = document.createElement('div');
+        card.className = 'sphere-card w-56 h-36 sm:w-72 sm:h-44 rounded-2xl overflow-hidden border border-white/15 bg-obsidian-card shadow-2xl pointer-events-auto cursor-pointer group';
+        card.innerHTML = `
+          <img src="${photo.src}" alt="${photo.label}" draggable="false" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian/85 via-transparent to-transparent"></div>
+          <div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-obsidian/70 text-mint-400 border border-mint-500/30 backdrop-blur-sm">
+            ${photo.tag}
+          </div>
+          <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+            <span class="text-[11px] font-bold text-white truncate">${photo.label}</span>
+            <span class="p-1 rounded-lg bg-white/10 text-slate-200 group-hover:bg-mint-500 group-hover:text-obsidian transition">
+              <i data-lucide="maximize-2" class="w-3 h-3"></i>
+            </span>
+          </div>
+        `;
+
+        // 點擊卡片放大檢視（若非拖曳動作）
+        card.addEventListener('click', () => {
+          if (!dragMoved) {
+            openLightbox(photo.src, photo.label);
+          }
+        });
+
+        container.appendChild(card);
+        sphereCardElements.push(card);
+
+        // 指示點
+        const dot = document.createElement('button');
+        dot.className = 'w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-mint-400 transition-all';
+        dot.title = `切換至第 ${idx + 1} 張`;
+        dot.addEventListener('click', () => focusSphereIndex(idx));
+        dotsContainer.appendChild(dot);
+        sphereDotElements.push(dot);
+      });
+
+      // 滑鼠與觸控拖曳事件
+      const onPointerDown = (clientX) => {
+        isDraggingSphere = true;
+        dragStartX = clientX;
+        dragMoved = false;
+        sphereTargetAngle = null;
+        sphereVelocity = 0;
+      };
+
+      const onPointerMove = (clientX) => {
+        if (!isDraggingSphere) return;
+        const deltaX = clientX - dragStartX;
+        if (Math.abs(deltaX) > 4) dragMoved = true;
+        dragStartX = clientX;
+        const deltaAngle = deltaX * 0.0075;
+        sphereAngle += deltaAngle;
+        sphereVelocity = deltaAngle;
+      };
+
+      const onPointerUp = () => {
+        isDraggingSphere = false;
+      };
+
+      stage.addEventListener('mousedown', (e) => onPointerDown(e.clientX));
+      window.addEventListener('mousemove', (e) => onPointerMove(e.clientX));
+      window.addEventListener('mouseup', onPointerUp);
+
+      stage.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 0) onPointerDown(e.touches[0].clientX);
+      }, { passive: true });
+      stage.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) onPointerMove(e.touches[0].clientX);
+      }, { passive: true });
+      stage.addEventListener('touchend', onPointerUp);
+
+      requestAnimationFrame(animateSphere);
+    }
+
+    function animateSphere() {
+      const count = spherePhotos.length;
+      const step = (Math.PI * 2) / count;
+      const isMobile = window.innerWidth < 640;
+      const radiusX = isMobile ? 135 : 270; // 水平球體軌道半徑
+      const radiusZ = isMobile ? 120 : 210; // 深度半徑
+      const tiltY = isMobile ? 14 : 22;     // 球面立體傾角高低差
+
+      if (!isDraggingSphere) {
+        if (sphereTargetAngle !== null) {
+          const diff = sphereTargetAngle - sphereAngle;
+          if (Math.abs(diff) < 0.003) {
+            sphereAngle = sphereTargetAngle;
+            sphereTargetAngle = null;
+          } else {
+            sphereAngle += diff * 0.1;
+          }
+        } else {
+          if (Math.abs(sphereVelocity) > 0.0005) {
+            sphereAngle += sphereVelocity;
+            sphereVelocity *= 0.94;
+          } else if (isSphereAuto) {
+            sphereAngle += 0.0045; // 柔和自動循環速度
+          }
+        }
+      }
+
+      let frontIdx = 0;
+      let maxZ = -Infinity;
+
+      sphereCardElements.forEach((card, i) => {
+        const theta = sphereAngle + i * step;
+        const x = Math.sin(theta) * radiusX;
+        const z = Math.cos(theta) * radiusZ;
+        const y = Math.sin(theta) * tiltY; // 呈現立體軌道斜角
+
+        // 根據 z 軸景深計算縮放與透明度 (0 ~ 1)
+        const depthRatio = (z + radiusZ) / (2 * radiusZ);
+        const scale = 0.62 + depthRatio * 0.44;
+        const opacity = 0.35 + depthRatio * 0.65;
+        const zIndex = Math.round(depthRatio * 30) + 10;
+
+        card.style.transform = `translate(-50%, -50%) translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
+        card.style.opacity = opacity.toFixed(2);
+        card.style.zIndex = zIndex;
+        card.style.filter = depthRatio < 0.35 ? 'blur(1px)' : 'none';
+
+        if (z > maxZ) {
+          maxZ = z;
+          frontIdx = i;
+        }
+      });
+
+      // 同步更新底部指示點狀態
+      sphereDotElements.forEach((dot, idx) => {
+        if (idx === frontIdx) {
+          dot.className = 'w-6 h-2.5 rounded-full bg-mint-400 shadow-md shadow-mint-400/50 transition-all';
+        } else {
+          dot.className = 'w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-mint-400/60 transition-all';
+        }
+      });
+
+      requestAnimationFrame(animateSphere);
+    }
+
+    function stepSphere(dir) {
+      const count = spherePhotos.length;
+      const step = (Math.PI * 2) / count;
+      const currentSnap = Math.round(sphereAngle / step) * step;
+      sphereTargetAngle = currentSnap - dir * step;
+    }
+
+    function focusSphereIndex(index) {
+      const count = spherePhotos.length;
+      const step = (Math.PI * 2) / count;
+      const target = -index * step;
+      // 計算最短旋轉路徑
+      const twoPi = Math.PI * 2;
+      let diff = (target - sphereAngle) % twoPi;
+      if (diff > Math.PI) diff -= twoPi;
+      if (diff < -Math.PI) diff += twoPi;
+      sphereTargetAngle = sphereAngle + diff;
+    }
+
+    function toggleSphereAutoPlay() {
+      isSphereAuto = !isSphereAuto;
+      const textEl = document.getElementById('spherePlayPauseText');
+      const iconEl = document.getElementById('spherePlayPauseIcon');
+      if (isSphereAuto) {
+        textEl.textContent = '自動循環中';
+        iconEl.setAttribute('data-lucide', 'pause');
+      } else {
+        textEl.textContent = '已暫停循環';
+        iconEl.setAttribute('data-lucide', 'play');
+      }
+      lucide.createIcons();
+    }
+
+    function openLightbox(src, caption) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxCaption').textContent = caption;
+      openModal('lightboxModal');
+    }
+
+    // ==========================================
+    // 2. 專業教室數據庫
+    // ==========================================
     const facilitiesData = [
       {
         tag: '哈佛式案例研討 ✕ 跨域思維',
@@ -1023,7 +1322,9 @@
       }
     ];
 
-    // 職涯雷達角色數據
+    // ==========================================
+    // 3. 職涯雷達角色數據
+    // ==========================================
     const careerRoles = [
       {
         title: '數位行銷策略師',
@@ -1081,6 +1382,7 @@
 
     // 初始化載入
     document.addEventListener('DOMContentLoaded', () => {
+      initSphereGallery();
       lucide.createIcons();
       document.getElementById('yearSpan').textContent = new Date().getFullYear();
       renderCareerTabs();
@@ -1117,7 +1419,6 @@
       currentRoleIndex = index;
       const role = careerRoles[index];
       
-      // 更新按鈕樣式
       document.querySelectorAll('.career-tab-btn').forEach((btn, idx) => {
         if (idx === index) {
           btn.className = 'career-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-mint-500 text-obsidian shadow-lg shadow-mint-500/20';
@@ -1145,7 +1446,6 @@
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-          <!-- 核心養成課程 -->
           <div class="bg-white/5 p-4.5 rounded-2xl border border-white/5">
             <div class="text-xs font-bold text-mint-400 mb-3 flex items-center gap-1.5">
               <i data-lucide="book-open" class="w-4 h-4"></i>
@@ -1156,7 +1456,6 @@
             </ul>
           </div>
 
-          <!-- 必備專業證照 -->
           <div class="bg-white/5 p-4.5 rounded-2xl border border-white/5">
             <div class="text-xs font-bold text-cyberCyan-400 mb-3 flex items-center gap-1.5">
               <i data-lucide="award" class="w-4 h-4"></i>
@@ -1167,7 +1466,6 @@
             </ul>
           </div>
 
-          <!-- 主要就業出路 -->
           <div class="bg-white/5 p-4.5 rounded-2xl border border-white/5">
             <div class="text-xs font-bold text-amber-300 mb-3 flex items-center gap-1.5">
               <i data-lucide="building-2" class="w-4 h-4"></i>
@@ -1223,7 +1521,6 @@
         content.style.maxHeight = '0px';
         if (icon) icon.style.transform = 'rotate(0deg)';
       } else {
-        // 先關閉其他
         document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
         document.querySelectorAll('.faq-btn i, .faq-btn svg').forEach(i => i.style.transform = 'rotate(0deg)');
         
